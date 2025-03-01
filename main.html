@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Игра Война Рэгдоллов - 8Games.net</title>
+<link rel="stylesheet" href="/lib/game-loader/gameloader2020.css" />
+<script src="/lib/game-loader/gameloader2020.js"></script>
+<script src="/lib/ysdk/v2.js"></script> 
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script>
+            YaGames.init().then(ysdk=>{
+                console.log('Yandex SDK initialized');
+                window.ysdk = ysdk;
+            }
+            );
+
+            function Start() {
+
+                var data = window.ysdk.deviceInfo;
+                window.unityInstance.SendMessage('YANDEX', 'GettingDevice', JSON.stringify(data));
+
+            }
+</script>
+<script>var GG_INJ_CFG={ "pna":true};</script>
+<body>
+<script type="text/javascript">
+	var options = {
+		author: "Vseigru",
+		logo: "logo.jpg",
+		gameName: "Война Рэгдоллов",
+		gameNameEu: "Ragdoll War", //Stick Fight: The Game
+		gameUrl: "42211",
+		moreLink: ("https://8games.net"),
+		allowFullscreen: true,
+		locale: "ru_RU",
+		loader: "unity2020",
+		loaderOptions: {
+			unityLoaderUrl: "Build/FunRagdoll.loader.js",
+			unityConfigOptions: {
+				dataUrl: "Build/webgl.data",
+				frameworkUrl: "Build/build.framework.js",
+			    codeUrl: "Build/build.wasm",
+				streamingAssetsUrl: "StreamingAssets"
+			}
+		},
+    };
+	GameInit.load(options);	  
+</script>
+</body>
+</html>
